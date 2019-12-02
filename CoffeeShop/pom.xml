@@ -15,7 +15,7 @@
         
         <spring.version>4.3.25.RELEASE</spring.version>
         <jstl.version>1.2</jstl.version>
-        <sping.data.jpa.version>1.11.20.RELEASE</sping.data.jpa.version>
+        <sping.data.jpa.version>1.11.23.RELEASE</sping.data.jpa.version>
         <mysql.connector.version>8.0.16</mysql.connector.version>
         <hibernate.entity.version>5.4.0.Final</hibernate.entity.version>
         <bootstrap.version>3.4.1</bootstrap.version>
