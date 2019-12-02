@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                http://www.springframework.org/schema/security
+                http://www.springframework.org/schema/security/spring-security-4.2.xsd
+">
+    <security:global-method-security pre-post-annotations="enabled"/>
+    <security:authentication-manager>
+        <security:authentication-provider ref="authentication" />
+        
+        <security:authentication-provider user-service-ref="userDetailsManager">
+            <security:password-encoder ref="bcryptEncoder"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+    
+    <security:http auto-config="true">
+        <security:form-login 
+            login-page="/dang-nhap"
+            username-parameter="username"
+            password-parameter="password"
+            authentication-failure-url="/dang-nhap?isError=true"
+            login-processing-url="/j_spring_security_check"
+            authentication-success-handler-ref="authentication-success"
+        />
+        
+        <security:logout
+            delete-cookies="JSESSIONID"
+            logout-success-url="/home"
+            logout-url="/dang-xuat"
+        />
+        
+        <security:csrf disabled="true" />
+        
+        <security:intercept-url pattern="/user/*" 
+                                access="hasAnyRole('ROLE_USER','ROLE_ADMIN','ROLE_MANAGER')" />
+        <security:intercept-url pattern="/seller/*" 
+                                access="hasAnyRole('ROLE_SELLER','ROLE_MANAGER')" />
+        <security:intercept-url pattern="/admin/account/*" 
+                                access="hasRole('ROLE_ADMIN')" />
+        
+        
+        <security:intercept-url pattern="/admin/category/category" 
+                                access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER','ROLE_SELLER')" />
+        <security:intercept-url pattern="/admin/product/product" 
+                                access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER','ROLE_SELLER')" />
+        <security:intercept-url pattern="/admin/promotion/promotion" 
+                                access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER','ROLE_SELLER')" />
+        
+        <security:intercept-url pattern="/admin/category/*" 
+                                access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" />
+        <security:intercept-url pattern="/admin/product/*" 
+                                access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" />
+        <security:intercept-url pattern="/admin/promotion/*" 
+                                access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" />
+        <security:intercept-url pattern="/admin/order/*" 
+                                access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER','ROLE_SELLER')" />
+        
+    </security:http>
+    
+    
+    <bean id="authentication"
+          class="com.iviettech.coffeeshop.security.CustomAuthenticationProvider"/>
+    <bean id="authentication-success"
+          class="com.iviettech.coffeeshop.security.CustomAuthenticationSuccessHandler"/>
+    
+    <bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+    
+    <bean id="userDetailsManager" class="org.springframework.security.provisioning.JdbcUserDetailsManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+</beans>
+

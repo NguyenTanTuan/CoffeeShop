@@ -1,0 +1,92 @@
+body{	
+	margin: 0;
+	padding: 0;
+	background: url('../images/landingPage/login-background.jpeg') no-repeat;
+	background-size: cover;
+	font-family: Arial, Helviteca, sans-serif;
+}
+a{
+	color: #6495ED;
+	text-decoration: none;
+}
+a:hover{
+	color: #28b65f;
+}
+#form{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 100vh;
+}
+#container{
+	width: 250px;
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.7);
+	padding: 4% 6%;
+	color: white;
+}
+
+#container h1{
+	font-size: 270%;
+	margin-top: 0;
+	margin-bottom: 10%;
+	text-align: center;
+	color: #28b65f;
+}
+.group{
+	position: relative;
+	z-index: 2;
+}
+.group label{
+	position: absolute;
+	top: 40%;
+	left: 0;
+	color: #6495ED;
+	z-index: 1;
+}
+
+input{color: white;}
+
+.group input{
+	width: 100%;
+	height: 30px;
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #6495ED;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	background-color: transparent;
+	color: white;
+}
+.group input:focus, .group input:valid{	border-bottom-color: #1ebb47; }
+.group input:focus ~ label, .group input:valid ~ label{
+	top: 10%;
+	color: #1ebb47;
+	transition: 0.5s;
+}
+.button{
+	display: flex;
+	justify-content: space-around;
+}
+.button input{
+	width: 50%;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	font-size: 120%;
+	background-color: #6495ED;
+	padding: 5% 0;
+	border-radius: 35px;
+}
+.button input:hover{
+	transition: 0.7s;
+	background-color:  #32b076; 
+}
+.messageError{
+    color: red;
+    margin: 2px 0 5px 0;
+    text-align: center;
+}
+.more-info{
+    padding: 10px 0;
+}

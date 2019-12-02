@@ -1,0 +1,215 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 19, 2019, 6:24:02 PM
+    Author     : admin
+*/
+
+
+main{
+    width: 100%;
+    background: url('../images/landingPage/background-tree-simple.png') no-repeat;
+    background-position-x: 100%;
+    background-position-y: 100%;
+    background-size: contain;
+
+    background-color: #ebfaeb;
+}
+.container-product-info{
+    width: 100%;
+    height: 80vh;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.container-product-info > img{
+    height: 80%;
+    margin-right: 5%;
+
+    border-radius: 10px;
+}
+.product-info{
+    width: 320px;
+}
+.product-info__name{
+    width: fit-content;
+    position: relative;
+
+    text-transform: uppercase;
+}
+.product-info__name:after{
+    content: '';
+    width: 60%;
+    height: 3px;
+
+    position: absolute;
+    background: #5bd75b;
+}
+.product-info__decription{
+    margin: 10% 0;
+}
+.product-info__price{
+    color: #b30000;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+.product-info__price--promotion{
+    text-decoration: line-through; 
+    font-size: 1em; 
+    font-weight: 600;
+    color: grey;
+    margin-bottom: 10px;
+}
+.product-info__sizes{
+    margin: 10% 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.product-info__sizes p{
+    font-weight: 600;
+}
+.product-info__sizes__button{
+    padding: 10px 20px;
+    margin: 0 5px;
+
+    text-align: center;
+
+    border: 2px solid black;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.product-info__sizes__button:hover{
+    cursor: pointer;
+    border-color: #ccc;
+    color: #ccc;
+    background: black;
+}
+.product-info__sizes__button--active{
+    cursor: pointer;
+    border-color: #ccc;
+    color: #ccc;
+    background: black;
+}
+.favorite{
+    padding-left: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #ff6666;
+}
+.favorite:hover{
+    text-decoration: underline;
+}
+.product-info__buy-action{
+    display: flex;
+    flex: 1 0 auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.product-info__buy-button{
+    /*width: 80%;*/
+    padding: 15px 5px;
+    margin-left: 10px;
+    text-align: center;
+
+    font-weight: 600;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    background-color: #ebfaeb;
+
+    border: 2px solid #5bd75b;
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+.product-info__buy-button:hover{
+    cursor: pointer;
+    background: #5bd75b;
+}
+.product-info__buy-button:nth-child(2){
+    border: 2px solid #d9ad73 !important;
+}
+.product-info__buy-button:nth-child(2):hover{
+    background: #d9ad73 !important;
+}
+.product-info__buy-button--active{
+    cursor: pointer;
+    background: #5bd75b;
+}
+
+#vote {
+    width: fit-content;
+    box-sizing: content-box;
+    height: 60px;
+    display: flex;
+    flex-direction: row-reverse;
+    border-radius: 10px;
+}
+
+.star {
+    line-height: 60px;
+    color: #a9a9a9;
+}
+
+.star:before {
+    content: '\2605';
+    width: 60px;
+    height: 60px;
+    font-size: 60px;
+}
+
+.star:hover,
+.star.selected,
+.star:hover~.star,
+.star.selected~.star {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: #f2f20d;
+}
+
+#popup-message{
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+#popup-message > .container{
+    width: 300px;
+    height: fit-content;
+    padding: 10px 0;
+    
+    border: 1px solid #99ffcc;
+    border-radius: 5px;
+    box-shadow:1px 1px 20px 8px #99ffcc;
+    
+    background-color: white;
+    
+}
+#popup-message > .container > h2{
+    text-align: center;
+}
+@media only screen and (max-width: 700px){
+    .container-product-info{
+        height: fit-content;
+        margin-top: 5vh;
+    }
+    .container-product-info > img{
+        height: 350px;
+        margin-bottom: 10px;
+    }
+}
