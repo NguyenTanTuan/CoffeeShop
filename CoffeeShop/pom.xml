@@ -20,7 +20,7 @@
         <hibernate.entity.version>5.4.0.Final</hibernate.entity.version>
         <bootstrap.version>3.4.1</bootstrap.version>
         <font-awesome.version>4.6.2</font-awesome.version>
-        <jackson.version>2.6.3</jackson.version>
+        <jackson.version>2.11.0</jackson.version>
         <servletapi.version>3.1.0</servletapi.version>
         <hibernate.validator.version>6.0.16.Final</hibernate.validator.version>
         <spring.security.version>4.2.13.RELEASE</spring.security.version>
